@@ -1295,46 +1295,46 @@ footer {
     .speckle {
         z-index: -100;
         position: absolute;
-        background: hsl(0, 0%, 98%);
+        background: hsl(0, 0%, 97%);
         border-radius: 2rem;
     }
 
-    .speckle.first {
+    .first {
         height: 20rem;
         width: 20%;
         right: 10rem;
         top: 8%;
     }
     
-    .speckle.second {
+    .second {
         height: 20rem;
         width: 25%;
         left: 20vw;
         top: 60%;
     }
 
-    .speckle.third {
+    .third {
         height: 20rem;
         width: 15%;
         right: 10vw;
         top: 30%;
     }
 
-    .speckle.fourth {
+    .fourth {
         height: 40rem;
         width: 20%;
         left: 25vw;
         top: 70%;
     }
 
-    .speckle.fifth {
+    .fifth {
         height: 40rem;
         width: 40%;
         right: 6vw;
         top: 30%;
     }
 
-    .speckle.sixth {
+    .sixth {
         height: 10rem;
         width: 10%;
         left: 20vw;
