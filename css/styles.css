@@ -757,7 +757,6 @@ html:not([data-scroll='0']) .nav-button > span {
     margin-block-end: 5rem;
     background: var(--background-process-wrapper);
     /* box-shadow: var(--box-shadow-process-dom); */
-    
 }
 
 .process-pitch-item * {
@@ -784,14 +783,33 @@ html:not([data-scroll='0']) .nav-button > span {
 
 @media screen and (max-width: 1679px) {
     .process-pitch-item:last-child {
+        margin-block-start: 3rem;
         grid-column: 1 / 4;
+    }
+
+    .process-pitch-wrapper {
+        gap: .7rem;
+        padding: 2rem;
+    }
+
+}
+
+@media screen and (max-width: 1200px)  {
+    .process-pitch-item:last-child {
+        margin-block-start: initial;
     }
 }
 
 @media screen and (max-width: 991px) {
     .process-pitch-item:last-child {
         grid-column: initial;
+        margin-block-start: initial;
     }
+
+    .process-pitch-wrapper {
+        padding: 2rem;
+    }
+
 }
 
 .process-pitch-item a {
@@ -1146,8 +1164,8 @@ footer {
 
 .water-section {
     background:linear-gradient(90deg, var(--landing-bg-color-one), var(--landing-bg-color-two)),url('../img/vatten_h.jpg') no-repeat center;
-    background-size: cover; 
     background-position: 20% 90%;
+    background-size: cover; 
 }
 
 .laser-section {
@@ -1159,6 +1177,12 @@ footer {
 .gas-plasma-section {
     background:linear-gradient(90deg, var(--landing-bg-color-one), var(--landing-bg-color-two)),url('../img/gas-plasma_h.jpg') no-repeat;
     background-position: 0% 20%;
+    background-size: cover; 
+}
+
+.tillagg-section {
+    background:linear-gradient(90deg, var(--landing-bg-color-one), var(--landing-bg-color-two)),url('../img/tillagg_h.jpg') no-repeat;
+    background-position: 0% 60%;
     background-size: cover; 
 }
 
@@ -1195,6 +1219,7 @@ footer {
     box-shadow: var(--box-shadow-process-dom);
     padding: 1rem;
     border-radius: .5rem;
+    background:white;
 }
 
 .process-dom li {
@@ -1259,6 +1284,64 @@ footer {
     min-width: 30ch;
 }
 
+.process-container hr {
+    margin: 2rem;
+    height: 1px;
+    background-color: hsl(0, 0%, 90%);
+    border: none;
+}
+
+@media screen and (min-width: 992px) {
+    speckle {
+        z-index: -100;
+        position: absolute;
+        background: hsl(0, 0%, 98%);
+        border-radius: 2rem;
+    }
+
+    speckle.first {
+        height: 20rem;
+        width: 20%;
+        right: 10rem;
+        top: 8%;
+    }
+    
+    speckle.second {
+        height: 20rem;
+        width: 25%;
+        left: 20vw;
+        top: 60%;
+    }
+
+    speckle.third {
+        height: 20rem;
+        width: 15%;
+        right: 10vw;
+        top: 30%;
+    }
+
+    speckle.fourth {
+        height: 40rem;
+        width: 20%;
+        left: 25vw;
+        top: 70%;
+    }
+
+    speckle.fifth {
+        height: 40rem;
+        width: 40%;
+        right: 6vw;
+        top: 30%;
+    }
+
+    speckle.sixth {
+        height: 10rem;
+        width: 10%;
+        left: 20vw;
+        top: 60%;
+    }
+}
+
 .process-container p {
     line-height: 1.5em;
     word-spacing: .1em;
@@ -1283,6 +1366,10 @@ footer {
 .process-container li {
     padding-left: .5em;
 }
+
+/* .process-container hr:last-of-type {
+    box-shadow: -10rem 10rem 0 5rem hsl(0, 0%, 96%);
+} */
 
 @media screen and (max-width: 991px) {
     .process-section {
@@ -1326,6 +1413,7 @@ footer {
     padding: 2rem;
     margin: 0;
     border-radius: 1rem;
+    background: white;
     box-shadow: inset rgba(0, 0, 0, 0.24) 0px 0px 0px, rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transition: var(--all-ease);
     white-space: nowrap;

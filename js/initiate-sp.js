@@ -42,5 +42,5 @@
 // });
 
 var rellax = new Rellax('.rellax', {
-	breakpoints:[576, 768, 1201]
+	breakpoints:[576, 768, 1201, 1679]
 });
