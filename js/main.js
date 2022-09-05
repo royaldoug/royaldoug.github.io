@@ -1,6 +1,8 @@
 //Navbutton query
 
 const navButton = document.querySelector(".nav-button");
+const dropDownAnchor = document.querySelector('.navbar-items:last-of-type ul > li > a')
+const dropDown = document.querySelector('.navbar-items:last-of-type ul > li > .dropdown');
 
 function toggleNav(){
     const hiddenNav = document.querySelector('.navbar-items:last-of-type');
@@ -18,8 +20,21 @@ function toggleNav(){
     },300);  
 };
 
+document.addEventListener('click', function(event) {
+    document.querySelectorAll('.dropdown').forEach(function(el) {
+      if (el !== event.target) el.classList.remove('dropdown-shown')
+    });
+    if (event.target.matches('#de')) {
+        event.target.closest('.navbar-items:last-of-type ul li').querySelector('.dropdown').classList.toggle('dropdown-shown');
+      }
+  });
+
+function toggleDropdown() {
+    document.querySelector(".dropdown").classList.toggle("dropdown-shown");
+  }
+
 function animateNav(){   
-    const buttonSpan = document.querySelectorAll('.nav-button>span');
+    const buttonSpan = document.querySelectorAll('.nav-button > span');
     
     for (const spans of buttonSpan) {
         spans.classList.toggle('transitioning-two');
@@ -30,8 +45,17 @@ function animateNav(){
         },300); 
     }
 
+    if (dropDown.classList.contains('dropdown-shown')) {
+        dropDown.classList.toggle('dropdown-shown')
+    } else {
+        null;
+    }
+
 };
 
 navButton.addEventListener('click', toggleNav);
 navButton.addEventListener('click', animateNav);
+
+
+
 

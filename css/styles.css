@@ -29,8 +29,10 @@
     
     --color-1: hsl(209, 66%, 34%);
     --color-1-A: hsla(209, 66%, 34%, 0.699);
+    --color-1-2: hsl(209, 72%, 45%);
     --color-2: hsl(32, 74%, 54%);
     --color-2-A: hsla(32, 74%, 54%, 0.651);
+    --color-2-2: hsl(32, 100%, 72%);
     --color-3: ;
     --color-3-A: ;
     --color-dark: ;
@@ -262,26 +264,6 @@ html:not([data-scroll='0']) .nav-button > span {
     overflow-x: hidden;
 }
 
-@media screen and (max-width: 991px) {
-    .dropdown {
-        z-index: 102 !important;
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        right: 0;
-        transform: initial !important;
-        border-radius: initial;
-        background-color:var(--color-2);
-    }
-
-    .navbar > .navbar-container > .navbar-items > ul > li {
-        position: initial;
-    }
-}
 
 .dropdown > ul > li {
     position: relative;
@@ -319,6 +301,81 @@ html:not([data-scroll='0']) .nav-button > span {
     visibility: visible;
     transform: translateY(5%);
     transition: var(--all-ft-ease);
+}
+
+.dropdown-btn {
+    display: none;
+}
+
+@media screen and (max-width: 991px) {
+    .dropdown {
+        z-index: 102 !important;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        transform: translateX(-100%) !important;
+        border-radius: initial;
+        background-color:var(--color-2);
+    }
+
+    .navbar > .navbar-container > .navbar-items > ul > li {
+        position: initial;
+
+    }
+
+    .navbar > .navbar-container > .navbar-items > ul > li:hover .dropdown {
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--all-ease);
+    }
+
+    .dropdown-shown {
+        opacity: 1 !important;
+        transform: translateX(0%) !important;
+        visibility: visible !important;
+        transition: var(--all-ease);
+    }
+
+    .dropdown-btn {
+        display: block;
+        width: 100%;
+        font-size: 1em;
+        padding: 1rem;
+        background: var(--background-body);
+        border: none;
+        font-weight: 500;
+        color: var(--color-2);
+        box-shadow: var(--box-shadow-process-dom);
+        border-radius: 2vw;
+        /* Tiny exception (for fun)*/
+        cursor: pointer;
+        /*               */
+    }
+
+    .dropdown > ul > li, .dropdown a {
+        border-radius: 1rem !important;
+    }
+    
+
+    .dropdown a {
+        font-size: 1em;
+        padding: 1rem;
+        margin-block: 1rem;
+    }
+
+    .dropdown > ul > li:hover {
+        background-color: var(--color-2-2);
+    }
+    
+    .navbar-items a:hover {
+        color: white !important;
+    }
+    
 }
 
 /* ---- End of dropdown ---- */
@@ -416,10 +473,29 @@ html:not([data-scroll='0']) .nav-button > span {
         display: block;
         margin: 0 !important;
         text-align: center;
-        border-bottom: 1px solid black;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+    }
+
+    .navbar > .navbar-container > .navbar-items > ul > li  {
+        padding: 1rem;
+        margin-block: 1rem !important;
+    }
+
+    .navbar > .navbar-container > .navbar-items > ul > li:hover {
+        background-color: var(--color-1-2);
+        transition: var(--all-ease);
     }
     
+    .shown > ul > li:hover > a {
+        color: white !important;
+        transition: var(--all-ease);
+    }
+
+    .navbar > .navbar-container > .navbar-items > ul > li, a {
+        border-radius: 1rem !important;
+        transition: var(--all-ease);
+    }
+
 }
 
 /* ---- End of Mobile navbar ---- */
