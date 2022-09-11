@@ -20,6 +20,8 @@
     --background-process-pitch-item: var(--color-1);
     --background-process-wrapper: hsl(0, 0%, 95%);
 
+    --background-machine-img: hsl(0, 0%, 89%);
+
     --background-card-container: hsl(0, 0%, 100%);
     --box-shadow-card-container: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 
@@ -739,11 +741,12 @@ html:not([data-scroll='0']) .nav-button > span {
     margin-top: 0;
 }
 
-.hS {
+.hS, .machine-container h3 {
     color: #0007;
     font-size: .9rem;
     letter-spacing: .2rem;
     margin-block: .3rem;
+    font-weight: 400;
 }
 
 .timeline-container {
@@ -1244,7 +1247,7 @@ footer {
 /* ---- Start of process' ---- */
 
 
-.process-heading {
+.process-heading, .machine-heading {
     position: relative;
     z-index: -1;
     height: 40vmin;
@@ -1253,6 +1256,12 @@ footer {
     grid-template-columns: 2fr 4fr 2fr; 
     background-blend-mode: darken;
     transition: var(--all-ease);
+}
+
+.machine-bg {
+    background:linear-gradient(90deg, var(--landing-bg-color-one), var(--landing-bg-color-two)),url('../img/maskinpark_h.jpg') no-repeat center;
+    background-position: 20% 90%;
+    background-size: cover; 
 }
 
 .water-section {
@@ -1574,6 +1583,112 @@ html #process, #material, #galleri, #material-plasma, #galleri-plasma, #process-
 }
 
 /* ---- End of process' ---- */
+
+/* ---- Start of Machines----*/
+
+.machine-wrapper {
+    background: var(--background-main-section);
+    display: grid;
+    gap: 4rem;
+    grid-template-areas:    '. mach-mid .';
+    grid-template-columns: minmax(1rem, .7fr) 4fr minmax(1rem, .7fr);
+    opacity: 0;
+    margin-block: calc(2rem + 1px);
+}
+
+.machine-container {
+    grid-area: mach-mid;
+    width: 100%;
+    scroll-margin: 1rem;
+}
+
+.machine-content {
+    display: grid;
+    padding-block: 2rem;
+}
+
+.machine-img-container {
+    grid-area: mach-img;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    padding: .5rem;
+}
+
+.machine-txt-container {
+    grid-area: mach-main;
+    display: grid;
+    place-items: center left;
+    width: 100%;
+    height: 100%;
+    padding: .5rem;
+}
+
+.machine-txt-container p {
+    margin: 0;
+    padding-block: .5rem;
+}
+
+.machine-container hr {
+    opacity: 0.3;
+    margin-block-end: 2rem;
+}
+
+.machine-img-container img {
+    width: 100%;
+    border-radius: .5rem;
+}
+
+.bs-right {
+    box-shadow: .5rem .5rem 0 1px var(--background-machine-img);
+}
+
+.bs-left {
+    box-shadow: -.5rem .5rem 0 1px var(--background-machine-img);
+}
+
+.machine-container h2, h3, h4, h5 {
+    color: var(--color-1);
+    margin-block: 0;
+}
+
+.machine-container h3 {
+    scroll-margin: 1rem;
+}
+
+.machine-content:nth-of-type(odd) {
+    grid-template-areas: 'mach-main mach-img';
+    grid-template-columns: 4fr 2fr;
+}
+
+.machine-content:nth-of-type(even) {
+    grid-template-areas: 'mach-img mach-main';
+    grid-template-columns: 2fr 4fr;
+}
+
+@media screen and (max-width: 991px) {
+    .machine-wrapper {
+        grid-template-areas:    '. mach-mid .';                      
+        grid-template-columns: 1fr 20fr 1fr;
+    }
+
+    .machine-content:nth-of-type(odd) {
+        grid-template-areas:    'mach-img'
+                                'mach-main';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .machine-content:nth-of-type(even) {
+        grid-template-areas:    'mach-img'
+                                'mach-main';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+}
+
+/* ---- End of Machines----*/
 
 /* ---- Start of Scrollmagic stuff ---- */
 .boxshadow {
