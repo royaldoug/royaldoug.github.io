@@ -4,8 +4,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
     </style>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/styles.min.css"> -->
+    <link rel="preload" href="css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="./photoswipe/photoswipe.css">
+    <link rel="stylesheet" href="./photoswipe/photoswipe-dynamic-caption-plugin.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,11 +60,8 @@
                                 <li>
                                     <a href="tillagg.html">Tillägg</a>
                                 </li>
-
-                                <li>
-                                    <button class="dropdown-btn">Tillbaka</button>
-                                </li>
                             </ul>
+                            <button class="dropdown-btn">Tillbaka</button>
                         </div>
                     </li>
 
@@ -95,11 +96,8 @@
                                 <li>
                                     <a href="#">AMADA HFE 3i 2204</a>
                                 </li>
-
-                                <li>
-                                    <button class="dropdown-btn">Tillbaka</button>
-                                </li>
                             </ul>
+                            <button class="dropdown-btn">Tillbaka</button>
                         </div>
                     </li>
 
@@ -122,11 +120,8 @@
                                 <li>
                                     <a href="#">Personal</a>
                                 </li>
-
-                                <li>
-                                    <button class="dropdown-btn">Tillbaka</button>
-                                </li>
                             </ul>
+                            <button class="dropdown-btn">Tillbaka</button>
                         </div>
                     </li>
 
@@ -309,15 +304,58 @@
             </div>
 
             <h2 id="galleri">Galleri</h2>
-            <div class="gallery">
-                <img src="img/water/temp1.jpg" alt="">
-                <img src="img/water/temp2.jpg" alt="">
-                <img src="img/water/temp3.png" alt="">
-                <img src="img/water/temp4.jpg" alt="">
-                <img src="img/water/temp5.svg" alt="">
-                <img src="img/water/temp6.jpg" alt="">
-                <img src="img/water/temp7.jpg" alt="">
+            <div class="gallery" id="ps-gallery">
+            
+                <a href="javascript:void();"
+                data-pswp-src="img/gallery/water/water1_2500.jpg"
+                data-pswp-width="2500" 
+                data-pswp-height="1674" 
+                target="_blank">
+                <img src="img/gallery/water/water1_400.jpg" alt="Vattenskurna detaljer i aluminium." loading="lazy"/>
+                <div class="pswp-caption-content">
+                    <p><b>Vattenskurna detaljer i 6082</b></p>
+                    <p>Oprocceserad</p>
+                </div>
+                </a>
+        
+                <a href="javascript:void();"
+                data-pswp-src="img/gallery/water/water2_2500.jpg"
+                data-pswp-width="2500" 
+                data-pswp-height="1674" 
+                target="_blank">
+                <img src="img/gallery/water/water2_400.jpg" alt="Vattenskuren detalj i S355MC." loading="lazy"/>
+                <div class="pswp-caption-content">
+                    <p><b>Vattenskuren detalj i S355MC</b></p>
+                    <p>Oprocceserad</p>
+                </div>
+                </a>
+
+                <a href="javascript:void();"
+                data-pswp-src="img/gallery/water/water3_2500.jpg"
+                data-pswp-width="2500" 
+                data-pswp-height="1674" 
+                target="_blank">
+                <img src="img/gallery/water/water3_400.jpg" alt="Vattenskuren detalj i 450HB." loading="lazy"/>
+                <div class="pswp-caption-content">
+                    <p><b>Vattenskuren detalj i 450HB</b></p>
+                    <p>Lätt slipad</p>
+                </div>
+                </a>
+
+                <a href="javascript:void();"
+                data-pswp-src="img/gallery/water/water4_2500.jpg"
+                data-pswp-width="2500" 
+                data-pswp-height="1674" 
+                target="_blank">
+                <img src="img/gallery/water/water4_400.jpg" alt="Kapad flaska i glas." loading="lazy"/>
+                <div class="pswp-caption-content">
+                    <p><b>Vattenskuren detalj i glas</b></p>
+                    <p>Glasflaska kapad på mitten.</p>
+                </div>
+                </a>
+
             </div>
+
         </div>
 
     </section>
@@ -397,5 +435,27 @@
     <script src="js/initiate-sp.js"></script>
     <script src="js/ScrollMagic.min.local.js"></script>
     <script src="js/init-scrollmagic.js" async="true"></script>
+    <script type="module">
+        import PhotoSwipeLightbox from './photoswipe/photoswipe-lightbox.esm.min.js';
+        import PhotoSwipeDynamicCaption from './photoswipe/photoswipe-dynamic-caption-plugin.esm.js';
+    
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '#ps-gallery',
+            childSelector: 'a',
+        pswpModule: () => import('./photoswipe/photoswipe.esm.min.js'),
+
+        paddingFn: (viewportSize) => {
+            return {
+            top: 30, bottom: 30, left: 70, right: 70
+         }
+        },
+        });
+    
+        const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
+            type: 'auto',
+        });
+    
+    lightbox.init();
+    </script>
 </body>
 </html>

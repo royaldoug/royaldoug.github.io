@@ -78,7 +78,7 @@ body {
     font-size: var(--html-font-size);
     padding: 0;
     margin: 0;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 html {
@@ -99,9 +99,22 @@ ul {
 
 /* Special condition */
 
+@media screen and (max-width: 991px) {
+    .kill-scroll {
+        overflow:hidden;
+    }
+}
+
 .nav-button {
     display: none;
 }
+
+.no-padding-figure {
+    margin: 0;
+    padding: 0;
+}
+
+/* Special condition */
 
 /* ---- Start Navbar ---- */
 
@@ -314,7 +327,10 @@ html:not([data-scroll='0']) .nav-button > span {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
+        min-height: 100%;
+        min-height: -moz-available;
+        min-height: -webkit-fill-available;
+        min-height: fill-available;
         width: 100%;
         top: 0;
         right: 0;
@@ -338,10 +354,11 @@ html:not([data-scroll='0']) .nav-button > span {
         opacity: 1 !important;
         transform: translateX(0%) !important;
         visibility: visible !important;
-        transition: var(--all-ease);
     }
 
     .dropdown-btn {
+        position: absolute;
+        bottom: 0;
         display: block;
         width: 100%;
         font-size: 1em;
@@ -351,7 +368,6 @@ html:not([data-scroll='0']) .nav-button > span {
         font-weight: 500;
         color: var(--color-2);
         box-shadow: var(--box-shadow-process-dom);
-        border-radius: 2vw;
         /* Tiny exception (for fun)*/
         cursor: pointer;
         /*               */
@@ -384,18 +400,16 @@ html:not([data-scroll='0']) .nav-button > span {
 
 @media screen and (max-width: 991px) {
     .navbar-items:last-of-type {
-        /*z-index: 99 !important;*/
         position: fixed;
-        display:flex;
+        display: flex;
         justify-content: center;
         align-items: center;
         right:0;
         top:0;
-        height: 100vh;
+        height: 100%;
         width: 100vw;
         background-color: var(--color-1)!important; 
         transform: translateX(100%);
-        
     }
     
     .navbar {
@@ -411,7 +425,7 @@ html:not([data-scroll='0']) .nav-button > span {
     }
 
     .shown > ul > li > a {
-        color: black !important;
+        padding: 1rem;
     }
 
     .transitioning {
@@ -471,29 +485,32 @@ html:not([data-scroll='0']) .nav-button > span {
 
     .navbar > .navbar-container > .navbar-items > ul > li {
         display: block;
-        margin: 0 !important;
+        margin-block: 1rem;
+        margin-inline: 0 !important;
         text-align: center;
         font-size: 1.4rem;
     }
 
-    .navbar > .navbar-container > .navbar-items > ul > li  {
+    /* .navbar > .navbar-container > .navbar-items > ul > li  {
         padding: 1rem;
         margin-block: 1rem !important;
-    }
+    } */
 
-    .navbar > .navbar-container > .navbar-items > ul > li:hover {
+    /* .navbar > .navbar-container > .navbar-items > ul > li:hover {
         background-color: var(--color-1-2);
         transition: var(--all-ease);
-    }
+    } */
     
     .shown > ul > li:hover > a {
         color: white !important;
-        transition: var(--all-ease);
+        background: var(--color-1-2);
+        /* border-radius: 1rem !important; */
+        transition: var(--all-ft-ease); 
     }
 
     .navbar > .navbar-container > .navbar-items > ul > li, a {
         border-radius: 1rem !important;
-        transition: var(--all-ease);
+        transition: var(--all-ft-ease);
     }
 
 }
@@ -1538,8 +1555,15 @@ html #process, #material, #galleri, #material-plasma, #galleri-plasma, #process-
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(12rem ,1fr));
+    /* grid-template-rows: repeat(auto-fill, minmax(134px, 1fr)); */
     gap: 1rem;
+    
+}
+
+.gallery > a > img {
+    width: 100%;
+    border-radius: .5rem;
 }
 
 .gallery > img {

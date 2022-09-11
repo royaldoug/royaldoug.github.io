@@ -1,7 +1,8 @@
 //Navbutton query
 
+const documentBody = document.querySelector('body');
 const navButton = document.querySelector(".nav-button");
-const dropDownAnchor = document.querySelector('.navbar-items:last-of-type ul > li > a')
+const mobileNav = document.querySelector('.navbar-items:last-of-type')
 const dropDown = document.querySelector('.navbar-items:last-of-type ul > li > .dropdown');
 
 function toggleNav(){
@@ -51,6 +52,8 @@ function animateNav(){
         null;
     }
 
+    documentBody.classList.toggle('kill-scroll');
+    // dropDown.classList.toggle('kill-scroll');
 };
 
 navButton.addEventListener('click', toggleNav);

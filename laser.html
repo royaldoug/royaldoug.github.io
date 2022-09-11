@@ -6,6 +6,8 @@
     </style>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="./photoswipe/photoswipe.css">
+    <link rel="stylesheet" href="./photoswipe/photoswipe-dynamic-caption-plugin.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,11 +58,8 @@
                                 <li>
                                     <a href="tillagg.html">Tillägg</a>
                                 </li>
-
-                                <li>
-                                    <button class="dropdown-btn">Tillbaka</button>
-                                </li>
                             </ul>
+                            <button class="dropdown-btn">Tillbaka</button>
                         </div>
                     </li>
 
@@ -95,11 +94,8 @@
                                 <li>
                                     <a href="#">AMADA HFE 3i 2204</a>
                                 </li>
-
-                                <li>
-                                    <button class="dropdown-btn">Tillbaka</button>
-                                </li>
                             </ul>
+                            <button class="dropdown-btn">Tillbaka</button>
                         </div>
                     </li>
 
@@ -122,11 +118,8 @@
                                 <li>
                                     <a href="#">Personal</a>
                                 </li>
-
-                                <li>
-                                    <button class="dropdown-btn">Tillbaka</button>
-                                </li>
                             </ul>
+                            <button class="dropdown-btn">Tillbaka</button>
                         </div>
                     </li>
 
@@ -151,7 +144,7 @@
                     <a href="#material">Material</a>
                 </li>
                 <li>
-                    <a href="#">Bildgalleri</a>
+                    <a href="#galleri">Bildgalleri</a>
                 </li>
                 <li>
                     <a href="#">Kontakt</a>
@@ -254,6 +247,45 @@
             </div>
 
             <h2 id="galleri">Galleri</h2>
+            <div class="gallery" id="ps-gallery">
+            
+                <a href="javascript:void();"
+                data-pswp-src="img/gallery/laser/laser1_2500.jpg"
+                data-pswp-width="2500" 
+                data-pswp-height="1674" 
+                target="_blank">
+                <img src="img/gallery/laser/laser1_400.jpg" alt="Bockad och svetsad laserskuren detalj." loading="lazy"/>
+                <div class="pswp-caption-content">
+                    <p><b>Laserskuren detalj i 1.4301</b></p>
+                    <p>Bockad och svetsad</p>
+                </div>
+                </a>
+            
+                <a href="javascript:void();"
+                data-pswp-src="img/gallery/laser/laser2_2500.jpg"
+                data-pswp-width="2500" 
+                data-pswp-height="1674" 
+                target="_blank">
+                <img src="img/gallery/laser/laser2_400.jpg" alt="Laserskuren detalj" loading="lazy"/>
+                <div class="pswp-caption-content">
+                    <p><b>Laserskuren detalj i S355MC</b></p>
+                    <p>Borstad</p>
+                </div>
+                </a>
+            
+                <a href="javascript:void();"
+                data-pswp-src="img/gallery/laser/laser3_2500.jpg"
+                data-pswp-width="2500" 
+                data-pswp-height="1674" 
+                target="_blank">
+                <img src="img/gallery/laser/laser3_400.jpg" alt="Bockad och blästrad laserskuren detalj" loading="lazy"/>
+                <div class="pswp-caption-content">
+                    <p><b>Laserskuren detalj i S355MC</b></p>
+                    <p>Bockad och blästrad med kiselkarbid</p>
+                </div>
+                </a>
+
+            </div>
             
         </div>
          
@@ -334,5 +366,27 @@
     <script src="js/initiate-sp.js"></script>
     <script src="js/ScrollMagic.min.local.js"></script>
     <script src="js/init-scrollmagic.js" async="true"></script>
+    <script type="module">
+        import PhotoSwipeLightbox from './photoswipe/photoswipe-lightbox.esm.min.js';
+        import PhotoSwipeDynamicCaption from './photoswipe/photoswipe-dynamic-caption-plugin.esm.js';
+    
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '#ps-gallery',
+            childSelector: 'a',
+        pswpModule: () => import('./photoswipe/photoswipe.esm.min.js'),
+
+        paddingFn: (viewportSize) => {
+            return {
+            top: 30, bottom: 30, left: 70, right: 70
+         }
+        },
+        });
+    
+        const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
+            type: 'auto',
+        });
+    
+    lightbox.init();
+    </script>
 </body>
 </html>
