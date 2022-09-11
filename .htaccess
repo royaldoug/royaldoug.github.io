@@ -1,3 +1,6 @@
+RewriteEngine on
+RewriteRule ^([^/]+)/module-home/?(.*)$ /$1/$2 [R=301,L]
+
 <ifModule mod_gzip.c>
 mod_gzip_on Yes
 mod_gzip_dechunk Yes
