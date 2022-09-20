@@ -960,16 +960,16 @@ html:not([data-scroll='0']) .nav-button > span {
 /* ---- End of process pitch ---- */
 
 /* ---- Extremely tiny screen exception ---- */
-sc-excep {
+.sc-excep {
     display: none;
 }
 
 @media screen and (max-width: 210px) {
-    screenwrapper {
+    .screenwrapper {
         display: none;
     }
 
-    sc-excep {
+    .sc-excep {
         display: block;
         margin: 5px;
     }
@@ -1518,7 +1518,7 @@ footer {
 
 .material-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(22ch, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(10ch, 1fr));
     gap: 1rem;
 }

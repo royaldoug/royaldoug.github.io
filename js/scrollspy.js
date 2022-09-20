@@ -2,7 +2,7 @@
 const isoScrollSpy = (targetSelectorAll = "", toggleClass = "") => {
   const targets = document.querySelectorAll(targetSelectorAll),
    options = {
-    threshold: 0.8
+    threshold: 0.3
    };
   const inView = (target) => {
    const interSecObs = new IntersectionObserver((entries) => {
