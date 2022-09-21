@@ -11,6 +11,7 @@
     --background-dropdown-li: hsl(0, 0%, 90%);
     --background-machine-img: hsl(0, 0%, 89%);
     --background-card-container: hsl(0, 0%, 98%);
+    --background-timeline: hsl(0,0%,98%);
 
     --link-color-reg: hsl(0, 0%, 0%);
     --link-color-start: hsl(0, 0%, 100%);
@@ -30,7 +31,7 @@
     --color-3: ;
     --color-3-A: ;
     --color-dark: ;
-    --color-light: ;
+    --color-light: hsl(0, 0%, 73%);
 
     --vatten: rgb(53, 120, 207);
 
@@ -57,6 +58,20 @@
     --box-shadow-gallery-img: rgba(0, 0, 0, 0.1) 0 0 1px 1px;
     --box-shadow-process-dom: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 
+}
+
+::selection {
+    color: white;
+    background: var(--color-2);
+}
+
+::-moz-selection {
+    color: white;
+    background: var(--color-2);
+}
+
+button::selection {
+    background: none;
 }
 
 *, *::after, *::before {
@@ -675,132 +690,26 @@ html:not([data-scroll='0']) .nav-button > span {
     background: var(--background-main-section);
     display: grid;
     gap: 2rem;
-    grid-template-areas:    '. pro-pitch pro-pitch .'
-                            '. m-mid timeline .'
-                            
-                            '. card card .';
-    grid-template-columns: minmax(1rem, .7fr) 2fr 1fr minmax(1rem, .7fr);
+    grid-template-areas:    '. pro-pitch .'
+                            /* '. m-mid timeline .' */  
+                            'percs percs percs'        
+                            '. card .';
+    grid-template-columns: minmax(1rem, .7fr) 4fr minmax(1rem, .7fr);
 }
 
 @media screen and (max-width: 1200px) {
     .main-section {
-        grid-template-columns: minmax(1rem, .4fr) 2fr 1fr minmax(1rem, .4fr);
+        grid-template-columns: minmax(1rem, .4fr) 4fr minmax(1rem, .4fr);
     }
 }
-
-.main-container {
-    grid-area: m-mid;
-    /* margin-block: 2rem; */
-    min-width: 30ch;
-}
-
-.main-container p {
-    line-height: 1.5em;
-    word-spacing: .1em;
-}
-
-.iframe-main {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; 
-    height: 0;
-    margin-block-start: 1rem;
-    border-radius: .2em;
-    /* box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px; */
-    box-shadow: var(--box-shadow-card-container);
-    background: var(--background-body);
-}
-
-.iframe-main iframe {
-    position: absolute;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: .7rem;
-}
-
-.main-container h1, .timeline-container h1 {
-    color: var(--color-1);
-    font-size: 2rem;
-    margin-top: 0;
-}
-
-.hS, .machine-container h3 {
-    color: #0007;
-    font-size: .9rem;
-    letter-spacing: .2rem;
-    margin-block: .3rem;
-    font-weight: 400;
-}
-
-.timeline-container {
-    grid-area: timeline;
-}
-
-.timeline-container .spacer {
-    grid-area: y;
-    width: 4px;
-    border-radius: .15em;
-    height: 100%;
-    margin-block: .3rem .3rem;
-    display: flex;
-    justify-content: end;
-    background-color: var(--color-1);
-}
-
-.timeline-object {
-    min-height: 5rem;
-    display: grid;
-    grid-template-areas:    't y'
-                            '. y';
-    grid-template-columns: minmax(25ch, 100%) 4rem;
-    
-}
-
-.timeline-object b {
-    color: var(--color-1);
-}
-
-.timeline-object .text {
-    grid-area: t;
-    margin-block-end: 1rem;
-}
-
-.timeline-object .text p {
-    padding: 0;
-    margin: 0;
-    text-align: left;
-}
-
-.timeline-object .year {
-    grid-area: y;
-    width: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.timeline-object .year p {
-    color: var(--color-1);
-    font-weight: 800;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-}
-
-.timeline-container > .timeline-object:last-of-type > .year:last-of-type > .spacer:last-of-type {
-    visibility: hidden;
-}
-
 
 /* OVERFLOW PRONE */
 @media screen and (max-width:991px) {
     .main-section {
         grid-template-areas:    '. pro-pitch .'
-                                '. m-mid .'
-                                '. timeline .'
+                                '. percs .'
+                                /* '. m-mid .'
+                                '. timeline .' */
                                 '. card .';                         
         grid-template-columns: 1fr 20fr 1fr;
         /* grid-template-rows: repeat(auto-fit, minmax(10rem, 1fr)); */
@@ -812,21 +721,10 @@ html:not([data-scroll='0']) .nav-button > span {
         margin-block-start: 0 !important;
     }
 }
-/* OVERFLOW PRONE */
-
-@media screen and (max-width: 374px) {
-    .main-container {
-        min-width: auto;
-    }
-
-    .timeline-object {
-        grid-template-columns: minmax(auto, 100%) 4rem;
-    }
-}
-
 
 
 /* ---- End of main section ---- */
+
 
 /* ---- Start of process pitch ---- */
 
@@ -840,9 +738,9 @@ html:not([data-scroll='0']) .nav-button > span {
     padding-inline: 2rem;
     border-radius: .5rem;
     margin-block-start: 8rem;
-    margin-block-end: 5rem;
+    margin-block-end: 2rem;
     background: var(--background-process-wrapper);
-    /* box-shadow: var(--box-shadow-process-dom); */
+    box-shadow: var(--box-shadow-gallery-img);
 }
 
 .process-pitch-item * {
@@ -908,7 +806,7 @@ html:not([data-scroll='0']) .nav-button > span {
     bottom: 2rem;
 }
 
-.process-pitch-btn {
+.process-pitch-btn, .read-more-ewj {
     background-color: var(--background-process-wrapper);
     padding: .5em;
     border: none;
@@ -920,18 +818,24 @@ html:not([data-scroll='0']) .nav-button > span {
     box-shadow: inset 0 0 0 0 var(--color-2);
 }
 
-@media screen and (min-width: 992px) {
-    /* .process-pitch-item:hover {
-        scale: 1.05;
-        transition: var(--all-cb-two);
-    } */
+.read-more-ewj {
+    background: var(--color-1);
+    color: white;
+}
 
+@media screen and (min-width: 992px) {
     .process-pitch-btn:hover {
         cursor: pointer;
-        /* background-color: var(--color-2); */
         transition: var(--all-cb-one);
         color: white;
         box-shadow: inset 10ch 0 0 0 var(--color-2);
+    }
+
+    .read-more-ewj:hover {
+        cursor: pointer;
+        transition: var(--all-cb-one);
+        color: white;
+        box-shadow: inset 18ch 0 0 0 var(--color-2);
     }
 }
 
@@ -977,6 +881,50 @@ html:not([data-scroll='0']) .nav-button > span {
 
 /* ---- Extremely tiny screen exception ---- */
 
+/* ---- Start of percs ---- */
+.percs-container {
+    margin-block: 10rem;
+    grid-area: percs;
+    display: grid;
+    gap: 2rem;
+    grid-template-areas: '. percs-content percs-ft .';
+    grid-template-columns: minmax(1rem, .7fr) 1fr 1fr minmax(1rem, .7fr);
+}
+
+.percs-content {
+    grid-area: percs-content;
+}
+
+.percs-content {
+    font-size: 2rem;
+    color: var(--color-1);
+    font-weight: 800;
+    cursor: default;
+}
+
+.percs-ft {
+    grid-area: percs-ft;
+    font-size: 18px;
+}
+
+.percs-ft b {
+    color: var(--color-1);
+}
+
+.percs-ft p:nth-of-type(2){
+    margin-block-start: 0;
+}
+
+@media screen and (max-width:991px) {
+    .percs-container {
+        margin-block: 2rem;
+        grid-template-areas:    'percs-content' 
+                                'percs-ft';
+        grid-template-columns: 1fr;
+    }
+}
+/* ---- End of percs ---- */
+
 /* ---- Start of cards ---- */
 
 .card-container {
@@ -1018,7 +966,6 @@ html:not([data-scroll='0']) .nav-button > span {
 .card-init {
     /* background: var(--background-card-container); */
     border-radius: 2rem;
-    padding: 2rem;
     grid-area: card-init;
     display: grid;
 }
@@ -1070,7 +1017,7 @@ html:not([data-scroll='0']) .nav-button > span {
     justify-content: center;
     align-items: center;
     height: fit-content;
-    background: var(--color-1-2);
+    background: var(--color-1);
     padding: .5rem;
 }
 
@@ -1227,13 +1174,13 @@ footer {
     white-space: nowrap;
 }
 
-.copyright xf5 {
+.xf5 {
     font-size: .8rem;
     font-weight: 500;
     margin: .1em;
 }
 
-.copyright xf5:last-of-type {
+.xf5:last-of-type {
     font-weight: 600;
     color: var(--color-1);
 }
@@ -1242,7 +1189,7 @@ footer {
 /* ---- Start of process' ---- */
 
 
-.process-heading, .machine-heading {
+.process-heading, .machine-heading, .company-heading {
     position: relative;
     z-index: -1;
     height: 40vmin;
@@ -1283,6 +1230,12 @@ footer {
     background-size: cover; 
 }
 
+.foretaget-section {
+    background:linear-gradient(90deg, var(--landing-bg-color-one), var(--landing-bg-color-two)),url('../img/foretaget_h.jpg') no-repeat;
+    background-position: 0% 60%;
+    background-size: cover; 
+}
+
 .process-section {
     position: relative;
     z-index: 1;
@@ -1304,7 +1257,7 @@ footer {
     grid-area: p-nav;
     width: 100%;
     height: auto;
-    margin: 1rem;
+    /* margin: 1rem; */
 }
 
 .process-dom, .machine-dom {
@@ -1471,7 +1424,7 @@ footer {
     margin-top: 0;
 }
 
-.process-container li::marker {
+.process-container li::marker, .policy ul li::marker {
     color: var(--color-1);
     content: '\f101';
     font-family: 'Font Awesome 5 Free';
@@ -1778,6 +1731,186 @@ html #process, #material, #galleri, #material-plasma, #galleri-plasma, #process-
 
 
 /* ---- End of Machines----*/
+
+/* ---- Start of company ---- */
+
+.empty-wrapper {
+    opacity: 0;
+    margin-block-start: 2rem;
+}
+
+.company-section {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 2rem;
+    grid-template-areas: '. kval-pol env-pol .';
+    grid-template-columns:  minmax(1rem, .7fr) 2fr 2fr minmax(1rem, .7fr);
+    margin-block: 5rem;
+}
+
+.company-section h2, h3, h4, h5 {
+    color: var(--color-1);
+}
+
+.policy:nth-of-type(1){
+    grid-area: kval-pol;
+}
+
+.policy:nth-of-type(2){
+    grid-area: env-pol;
+}
+
+.policy ul li p {
+    margin-inline-start: 1rem;
+}
+
+.about-section {
+    position: relative;
+    z-index: 1;
+    background: var(--background-main-section);
+    display: grid;
+    gap: 2rem;
+    grid-template-areas: '. m-mid timeline .';
+    grid-template-columns:  minmax(1rem, .7fr) 2.7fr 1fr minmax(1rem, .7fr);
+}
+
+.main-container {
+    grid-area: m-mid;
+}
+
+.main-container p {
+    line-height: 1.5em;
+    word-spacing: .1em;
+}
+
+.iframe-main {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+    margin-block-start: 1rem;
+    border-radius: .2em;
+}
+
+.iframe-main iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: .7rem;
+}
+
+.main-container h1, .timeline-container h1 {
+    color: var(--color-1);
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.hS, .machine-container h3 {
+    color: #0007;
+    font-size: .9rem;
+    letter-spacing: .2rem;
+    margin-block: .3rem;
+    font-weight: 400;
+}
+
+.timeline-container {
+    grid-area: timeline;
+    height: fit-content;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow-process-dom);
+    /* background: var(--background-timeline); */
+}
+
+.timeline-container .spacer {
+    grid-area: y;
+    width: 4px;
+    border-radius: .15em;
+    height: 100%;
+    margin-block: .3rem .3rem;
+    display: flex;
+    justify-content: end;
+    background-color: var(--color-1);
+}
+
+.timeline-object {
+    min-height: 5rem;
+    display: grid;
+    grid-template-areas:    't y'
+                            '. y';
+    grid-template-columns: minmax(25ch, 100%) 4rem;
+    
+}
+
+.timeline-object b {
+    color: var(--color-1);
+}
+
+.timeline-object .text {
+    grid-area: t;
+    margin-block-end: 1rem;
+}
+
+.timeline-object .text p {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.timeline-object .year {
+    grid-area: y;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.timeline-object .year p {
+    color: var(--color-1);
+    font-weight: 800;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.timeline-container > .timeline-object:last-of-type > .year:last-of-type > .spacer:last-of-type {
+    visibility: hidden;
+}
+
+@media screen and (max-width:991px) {
+    .about-section {
+        grid-template-areas:    '. m-mid .' 
+                                '. timeline .';
+        grid-template-columns:  1fr 20fr 1fr;
+    }
+
+    .company-section {
+        grid-template-areas:    '. kval-pol .'
+                                '. env-pol .';
+        grid-template-columns:  1fr 20fr 1fr;
+    }
+
+
+}
+
+/* OVERFLOW PRONE */
+
+@media screen and (max-width: 374px) {
+    .main-container {
+        min-width: auto;
+    }
+
+    .timeline-object {
+        grid-template-columns: minmax(auto, 100%) 4rem;
+    }
+}
+
+
+/* ---- End of company ----*/
 
 /* ---- Start of Scrollmagic stuff ---- */
 

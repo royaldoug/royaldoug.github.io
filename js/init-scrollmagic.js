@@ -8,6 +8,7 @@ var process = new ScrollMagic.Scene({
 
 process.setClassToggle('.process-section', 'process-show');
 process.setClassToggle('.machine-wrapper', 'process-show');
+process.setClassToggle('.empty-wrapper', 'process-show');
 process.addTo(controller);
 
 
