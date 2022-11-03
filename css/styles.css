@@ -36,8 +36,10 @@
     --vatten: rgb(53, 120, 207);
 
     /* Gradients */
-    --landing-bg-color-one: hsl(246, 100%, 32%);
-    --landing-bg-color-two: hsla(246, 100%, 32%, 0.384);
+    /* --landing-bg-color-one: hsl(246, 100%, 32%);
+    --landing-bg-color-two: hsl(246, 100%, 32%, 0.384); */
+    --landing-bg-color-one: #080052;
+    --landing-bg-color-two: #1000a3;
 
     /* Sizes */
     --html-font-size: 16px;
@@ -562,7 +564,7 @@ html:not([data-scroll='0']) .nav-button > span {
     /*background-color: white;*/
     /*padding: 0.2em;*/
     opacity: 0;
-    color:var(--color-1);
+    color:white;
     transition: opacity .3s ease-in-out;
 }
 
@@ -1196,7 +1198,7 @@ footer {
     display: grid;
     grid-template-areas: '.. headerCenter ..';
     grid-template-columns: 2fr 4fr 2fr; 
-    background-blend-mode: darken;
+    background-blend-mode: hard-light;
     transition: var(--all-ease);
 }
 
@@ -1911,6 +1913,87 @@ html #process, #material, #galleri, #material-plasma, #galleri-plasma, #process-
 
 
 /* ---- End of company ----*/
+
+/* ---- start of contact ---- */
+
+.contact-section {
+    position: relative;
+    z-index: 1;
+    background: var(--background-main-section);
+    display: grid;
+    gap: 2rem;
+    grid-template-areas:    '. info map .';
+    grid-template-columns:  minmax(1rem, .7fr) 2.2fr 1.5fr minmax(1rem, .7fr);
+    margin-block-end: 5rem;
+}
+
+.contact-container {
+    grid-area: info;
+}
+
+.contact-container p {
+    margin: 0;
+    padding: 0;
+}
+
+.contact-container > ul > li::marker {
+    color: var(--color-1);
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 700; 
+}
+
+.contact-container > ul > li, .contact-section h3:first-of-type {
+    padding-left: 1em;
+}
+
+.contact-section h1 {
+    color: var(--color-1);
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.contact-section h2 {
+    color: var(--color-1);
+    font-size: 1.2rem;
+    margin-block: 0;
+}
+
+.contact-section h3 {
+    color: var(--color-1);
+    font-size: 1rem;
+    margin-block: 0;
+}
+
+.map-container {
+    grid-area: map;
+}
+
+.map-container iframe {
+    aspect-ratio: 1 / 1;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow-gallery-img);
+    width: 100%;
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+    .map-container iframe {
+        width: 100%;
+        height: 30rem;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .contact-section {
+        grid-template-areas:    '. info .' 
+                                '. map .';
+        grid-template-columns:  1fr 20fr 1fr;
+    }
+
+}
+
+/* ---- end of contant ---- */
+
 
 /* ---- Start of Scrollmagic stuff ---- */
 
