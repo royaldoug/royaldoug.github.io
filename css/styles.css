@@ -50,6 +50,7 @@
     --all-cb-one: all .3s cubic-bezier(0.17,0.31,0.13,1.3);
     --all-cb-two: all .5s cubic-bezier(.47,.42,.12,.98);
     --all-light-ease: all .1s ease-in-out;
+    --all-flash-ease: all .05s ease-in-out;
     --scrl-one-two: 1.2s ease-in-out;
     --scrl-zero-eight: .8s ease-in-out;
 
@@ -165,26 +166,42 @@ ul {
 }
 
 @media screen and (min-width: 992px) {
-html:not([data-scroll='0']) .navbar {
-    background-color:var(--background-navbar);
-    box-shadow: var(--navbar-boxshadow);
-    transition: var(--all-ease);
-}
+    .not-vis {
+        opacity: 0%;
+        transition: var(--all-flash-ease);
+    }
 
-html:not([data-scroll='0']) .navbar-items > ul > li a {
-    color:var(--link-color-reg);
-    transition: var(--all-light-ease);
-}
+    html:not([data-scroll='0']) .navbar {
+        background-color:var(--background-navbar);
+        box-shadow: var(--navbar-boxshadow);
+        transition: var(--all-ease);
+    }
 
-html:not([data-scroll='0']) .navbar-svg {
-    filter: none;
-    transition: var(--all-ease);
-}
+    html:not([data-scroll='0']) .navbar-items > ul > li a {
+        color:var(--link-color-reg);
+        transition: var(--all-light-ease);
+    }
 
-html:not([data-scroll='0']) .nav-button > span {
-    background-color: var(--nav-button);
-    transition: var(--all-ease);
-}
+    html:not([data-scroll='0']) .navbar-svg {
+        filter: none;
+        transition: var(--all-ease);
+    }
+
+    html:not([data-scroll='0']) .nav-button > span {
+        background-color: var(--nav-button);
+        transition: var(--all-ease);
+    }
+
+    html:not([data-scroll='0']) .navbar-items:first-of-type {
+        opacity: 100%;
+        transition: var(--all-light-ease);
+    }
+
+    html:not([data-scroll='0']) .not-vis {
+        opacity: 100%;
+        transition: var(--all-flash-ease);
+    }
+
 }
 
 
@@ -192,6 +209,7 @@ html:not([data-scroll='0']) .nav-button > span {
 
 
 /* ---- Start Navbar container ---- */
+
 
 .navbar-container {
     grid-area: nav-mid;
@@ -213,6 +231,7 @@ html:not([data-scroll='0']) .nav-button > span {
     height: 100%;
 }
 
+
 /* .navbar-items img {
     height: 3rem;
     width: auto;
@@ -225,7 +244,7 @@ html:not([data-scroll='0']) .nav-button > span {
     height: 3rem;
     width: auto;
     padding-left: 1rem;
-    filter: grayscale(1) invert(1) brightness(2) ;
+    filter: grayscale(1) invert(1) brightness(2);
     transition: var(--all-ease);
     animation: smoothIn .5s ease-in-out forwards;
 }
@@ -535,7 +554,8 @@ html:not([data-scroll='0']) .nav-button > span {
     z-index: -1;
     height: 100vmin;
     display: grid;
-    grid-template-areas: '.. headerLeft headerRight ..';
+    /* grid-template-areas: '.. headerLeft headerRight ..'; */
+    grid-template-areas: '.. headerCenter headerCenter ..';
     grid-template-columns: 2fr 3fr 1fr 2fr; 
 }
 
@@ -551,7 +571,7 @@ html:not([data-scroll='0']) .nav-button > span {
 
 .landing h1 {
     z-index: 1;
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 0;
     padding: 0;
     color: var(--landing-h1-color);
@@ -586,6 +606,36 @@ html:not([data-scroll='0']) .nav-button > span {
 
 .header-right {
     grid-area:headerRight;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    text-align: start;
+}
+
+.header-center {
+    grid-area: headerCenter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    animation: smoothIn 2s ease-in-out forwards;
+}
+
+.header-center-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header-svg {
+    height: 15rem;
+    width: auto;
+    filter: grayscale(1) invert(1) brightness(2) ;
+    transition: var(--all-ease);
+    margin-block-end: 2rem;
 }
 
 @media screen and (max-width:991px) {
@@ -1234,6 +1284,12 @@ footer {
 
 .foretaget-section {
     background:linear-gradient(90deg, var(--landing-bg-color-one), var(--landing-bg-color-two)),url('../img/foretaget_h.jpg') no-repeat;
+    background-position: 0% 60%;
+    background-size: cover; 
+}
+
+.kontakt-section {
+    background:linear-gradient(90deg, var(--landing-bg-color-one), var(--landing-bg-color-two)),url('../img/kontakt_h.jpg') no-repeat;
     background-position: 0% 60%;
     background-size: cover; 
 }

@@ -5,7 +5,7 @@ function onLoadChange(){
 
     setTimeout(function () {
         primaryObject.classList.toggle('opacity-none');
-        primaryObject.innerHTML = "Vatten";
+        primaryObject.innerHTML = "vatten";
         // primaryObject.style.color = 'var(--vatten)';
         setTimeout(function () {
             primaryObject.classList.toggle('opacity-none');
@@ -14,7 +14,7 @@ function onLoadChange(){
 
     setTimeout(function () {
         primaryObject.classList.toggle('opacity-none');
-        primaryObject.innerHTML = "Laser";
+        primaryObject.innerHTML = "laser";
         // primaryObject.style.color = 'var(--laser)';
         setTimeout(function () {
             primaryObject.classList.toggle('opacity-none');
@@ -23,7 +23,7 @@ function onLoadChange(){
 
     setTimeout(function () {
         primaryObject.classList.toggle('opacity-none');
-        primaryObject.innerHTML = "Plasma";
+        primaryObject.innerHTML = "plasma";
         // primaryObject.style.color = 'var(--plasma)';
         setTimeout(function () {
             primaryObject.classList.toggle('opacity-none');
@@ -32,7 +32,7 @@ function onLoadChange(){
 
     setTimeout(function () {
         primaryObject.classList.toggle('opacity-none');
-        primaryObject.innerHTML = "Gas";
+        primaryObject.innerHTML = "gas";
         // primaryObject.style.color = 'var(--gas)';
         setTimeout(function () {
             primaryObject.classList.toggle('opacity-none');
