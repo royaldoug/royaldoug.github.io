@@ -10,11 +10,11 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"></noscript>
 
-    <!-- <link rel="preload" href="./photoswipe/photoswipe.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="./photoswipe/photoswipe.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="./photoswipe/photoswipe.css"></noscript>
 
     <link rel="preload" href="./photoswipe/photoswipe-dynamic-caption-plugin.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="./photoswipe/photoswipe-dynamic-caption-plugin.css"></noscript> -->
+    <noscript><link rel="stylesheet" href="./photoswipe/photoswipe-dynamic-caption-plugin.css"></noscript>
     
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -156,9 +156,9 @@
                 <li>
                     <a href="#process-annat">Annat</a>
                 </li>
-                <!--<li>
-                    <a href="#">Bildgalleri</a>
-                </li>-->
+                <li>
+                    <a href="#tillagg-galleri">Bildgalleri</a>
+                </li>
                 <li>
                     <a href="kontakt.html">Kontakt</a>
                 </li>
@@ -214,9 +214,82 @@
                 <p>Vi har även möjlighet att blästra, slipa, pulverlackare, anodizera med mera.</p>
                 <p>Vi på Ekshärads Water Jet siktar på att vara en så komplett lösning för våra kunder som möjligt. Hör av er så skräddarsyr vi en helhetslösning för era projekt*.</p>
 
-                <sub>* = Vi åtar oss endast arbete gällande framtagning av objekt och konstruktioner, d.v.s att vi inte står för montage, underhåll eller dylikt.</sub>
+                <sub>* = Vi åtar oss endast arbete gällande framtagning av detaljer och konstruktioner, d.v.s att vi inte står för montage, underhåll eller dylikt.</sub>
             </div>
-            <h2 id="galleri">Galleri</h2>
+
+            <h2 id="tillagg-galleri">Galleri</h2>
+            <div class="gallery" id="ps-gallery">
+            
+                <a href="javascript:void();"
+                data-pswp-src="img/gallery/addons/bend1_2500.jpg"
+                data-pswp-width="2500" 
+                data-pswp-height="1674" 
+                target="_blank">
+                <img src="img/gallery/addons/bend1_400.jpg" alt="Bockad detalj" loading="lazy"/>
+                <div class="pswp-caption-content">
+                    <div class="image-caption-background">
+                        <p>Bockad detalj i 10mm / 355MC</p>
+                    </div>
+                    
+                </div>
+                </a>
+
+                <a href="javascript:void();"
+                data-pswp-src="img/gallery/addons/bend2_2500.jpg"
+                data-pswp-width="2500" 
+                data-pswp-height="1674" 
+                target="_blank">
+                <img src="img/gallery/addons/bend2_400.jpg" alt="Bockade detaljer" loading="lazy"/>
+                <div class="pswp-caption-content">
+                    <div class="image-caption-background">
+                        <p>Bockade detaljer redo för packning.</p>
+                    </div>
+                </div>
+                </a>
+
+                <a href="javascript:void();"
+                data-pswp-src="img/gallery/addons/rollerbend1_2500.jpg"
+                data-pswp-width="2500" 
+                data-pswp-height="1674" 
+                target="_blank">
+                <img src="img/gallery/addons/rollerbend1_400.jpg" alt="Rullade detaljer" loading="lazy"/>
+                <div class="pswp-caption-content">
+                    <div class="image-caption-background">
+                        <p>Rullbockade rör i Cor-Ten.</p>
+                    </div>
+                    
+                </div>
+                </a>
+
+                <a href="javascript:void();"
+                data-pswp-src="img/gallery/addons/weld1_2500.jpg"
+                data-pswp-width="2500" 
+                data-pswp-height="1674" 
+                target="_blank">
+                <img src="img/gallery/addons/weld1_400.jpg" alt="Punktsvetsade detaljer" loading="lazy"/>
+                <div class="pswp-caption-content">
+                    <div class="image-caption-background">
+                        <p>Stosar strålbockade och punktsvetsade i 253MA.</p>
+                    </div>
+                    
+                </div>
+                </a>
+
+                <a href="javascript:void();"
+                data-pswp-src="img/gallery/addons/weld2_2500.jpg"
+                data-pswp-width="2500" 
+                data-pswp-height="1674" 
+                target="_blank">
+                <img src="img/gallery/addons/weld2_400.jpg" alt="Svetsning" loading="lazy"/>
+                <div class="pswp-caption-content">
+                    <div class="image-caption-background">
+                        <p>Svetsning av 253MA-rör.</p>
+                    </div>
+                    
+                </div>
+                </a>
+
+            </div>
         </div>
 
          
@@ -294,5 +367,27 @@
     <script src="js/initiate-sp.js"></script>
     <script src="js/ScrollMagic.min.local.js"></script>
     <script src="js/init-scrollmagic.js" async="true"></script>
+    <script type="module">
+        import PhotoSwipeLightbox from './photoswipe/photoswipe-lightbox.esm.min.js';
+        import PhotoSwipeDynamicCaption from './photoswipe/photoswipe-dynamic-caption-plugin.esm.js';
+    
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '#ps-gallery',
+            childSelector: 'a',
+        pswpModule: () => import('./photoswipe/photoswipe.esm.min.js'),
+
+        paddingFn: (viewportSize) => {
+            return {
+            top: 30, bottom: 30, left: 70, right: 70
+         }
+        },
+        });
+    
+        const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
+            type: 'auto',
+        });
+    
+    lightbox.init();
+    </script>
 </body>
 </html>
