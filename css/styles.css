@@ -187,6 +187,11 @@ ul {
         transition: var(--all-light-ease);
     }
 
+    html:not([data-scroll='0']) .navbar-items > ul > li a:hover {
+        color:var(--color-1) !important;
+        transition: var(--all-light-ease);
+    }
+
     html:not([data-scroll='0']) .navbar-svg {
         filter: none;
         transition: var(--all-ease);
@@ -272,7 +277,7 @@ ul {
 }
 
 .navbar-items a:hover {
-    color: var(--color-1) !important;
+    color: var(--color-2) !important;
     transition: var(--all-ft-ease);
 }
 
@@ -940,12 +945,12 @@ ul {
 
 /* ---- Start of percs ---- */
 .percs-container {
-    margin-block: 10rem;
+    margin-block: 7rem;
     grid-area: percs;
     display: grid;
     gap: 2rem;
     grid-template-areas: '. percs-content percs-ft .';
-    grid-template-columns: minmax(1rem, .7fr) 1fr 1fr minmax(1rem, .7fr);
+    grid-template-columns: minmax(1rem, .7fr) 2fr 2fr minmax(1rem, .7fr);
 }
 
 .percs-content {
@@ -962,6 +967,12 @@ ul {
 .percs-ft {
     grid-area: percs-ft;
     font-size: 18px;
+}
+
+.percs-ft h1 {
+    color: var(--color-1);
+    font-size: 3rem;
+    margin-block: .5rem;
 }
 
 .percs-ft b {
@@ -988,8 +999,8 @@ ul {
     position: relative;
     grid-area: card;
     min-width: 30ch;
-    margin-block: 2rem;
-    padding-block: 5rem;
+    margin-block: 7rem;
+    /*padding-block: 5rem;*/
     /* background-color: var(--background-card-container); */
     display: grid;
     gap: 5rem;
@@ -1140,7 +1151,7 @@ ul {
 footer {
     width: 100%;
     display: grid;
-    gap: 1rem;
+    gap: 2rem;
     grid-template-areas:    '. footer-content .'
                             'copyright copyright copyright';
     grid-template-columns: minmax(1rem, .7fr) 4fr minmax(1rem, .7fr);
@@ -1880,7 +1891,7 @@ html #process, #material, #galleri, #material-plasma, #galleri-plasma, #process-
     margin-block: .3rem .3rem;
     display: flex;
     justify-content: end;
-    background-color: var(--color-1);
+    background-color: var(--color-1-A);
 }
 
 .timeline-object {
