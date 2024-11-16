@@ -747,9 +747,6 @@ ul {
     filter:grayscale();
 }
 
-.customers-grid img:last-of-type {
-    filter: invert(0.6);
-}
 
 .customers-grid img::selection {
     background-color: transparent;
@@ -766,7 +763,6 @@ ul {
     display: grid;
     gap: 2rem;
     grid-template-areas:    '. pro-pitch .'
-                            /* '. m-mid timeline .' */  
                             'percs percs percs'  
                             'ext ext ext'      
                             'card card card';
@@ -785,13 +781,9 @@ ul {
         grid-template-areas:    '. pro-pitch .'
                                 '. percs .'
                                 '. ext .'
-                                /* '. m-mid .'
-                                '. timeline .' */
                                 '. card .';                         
-        grid-template-columns: 1fr 20fr 1fr;
+                                grid-template-columns: minmax(1rem, .4fr) 4fr minmax(1rem, .4fr);
         /* grid-template-rows: repeat(auto-fit, minmax(10rem, 1fr)); */
-        
-        overflow-x:hidden;
         gap: 0;
     }
 
@@ -1059,10 +1051,15 @@ ul {
         grid-template-areas:    'ext-ft'
                                 'ext-content' ;
         grid-template-columns: 1fr;
+        margin-inline: 2rem;
     }
 
     .ext-content {
         display: none;
+    }
+
+    .ext-ft {
+        padding: 0;
     }
 }
 /* ---- End of percs ---- */
@@ -1960,7 +1957,6 @@ html #process, #material, #galleri, #material-plasma, #galleri-plasma, #process-
 .timeline-container {
     grid-area: timeline;
     height: fit-content;
-    padding: 1rem;
     border-radius: 1rem;
     box-shadow: var(--box-shadow-process-dom);
     /* background: var(--background-timeline); */
@@ -2038,14 +2034,29 @@ html #process, #material, #galleri, #material-plasma, #galleri-plasma, #process-
 
 @media screen and (max-width:991px) {
     .about-section {
-        grid-template-areas:    '. m-mid .' 
-                                '. timeline .';
-        grid-template-columns:  1fr 20fr 1fr;
+        grid-template-areas:    'm-mid' 
+                                'timeline';
+        grid-template-columns:  1fr;
         gap: 0;
+        margin-inline: 2rem;
     }
 
     .td-container {
         display: none;
+    }
+
+    .timeline-container {
+        padding: 1rem;
+    }
+
+    .timeline-container > .smooth-in {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .timeline-object {
+        grid-template-columns: 4rem minmax(14ch, 100%);
     }
 
     .company-section {
@@ -2282,12 +2293,15 @@ html #process, #material, #galleri, #material-plasma, #galleri-plasma, #process-
 
 /* ---- End of UIVerse imports ---- */
 
+/* ---- Start of 3D ---- */
 model-viewer {
     height: 100%;
     width: 100%;
     --progress-bar-color: transparent;
 }
+/* ---- End of 3D ---- */
 
+/* ---- Start of image viewer edits ---- */
 .pswp__img {
     background: transparent;
 }
@@ -2300,3 +2314,39 @@ model-viewer {
                 inset 10px -10px 20px #ffffff;
     padding: 1rem;
 }
+/* ---- End of image viewer edits ---- */
+
+/* ---- Start of machine lists ---- */
+.machine-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.machine-list-btn {
+    border-radius: 4rem;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow:  inset rgba(0, 0, 0, 0.24) 0px 0px 0px, rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: .8rem;
+    text-decoration: none;
+    color: var(--body-color);
+    transition: var(--all-cb-one);
+}
+
+.machine-list-btn:hover {
+    box-shadow: inset rgba(0, 0, 0, 0.24) 0px 3px 8px, rgba(0, 0, 0, 0.24) 0px 0px 0px;
+}
+
+.machine-list-btn:hover span{
+    border-left: solid .3rem var(--color-2);
+}
+
+.machine-list-btn span {
+    border-left: solid .3rem var(--color-1);
+    margin-right: .2rem;
+    transition: var(--all-cb-two);
+}
+/* ---- End of machine lists ---- */
