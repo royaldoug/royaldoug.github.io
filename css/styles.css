@@ -791,16 +791,20 @@ ul {
 
 /* OVERFLOW PRONE */
 @media screen and (max-width:1200px) {
-    .main-section {
+    /* .main-section {
         grid-template-areas:    'pro-pitch'
                                 'percs'
                                 'ext'
                                 'card';                         
                                 grid-template-columns: 1fr;
-        /* grid-template-rows: repeat(auto-fit, minmax(10rem, 1fr)); */
         gap: 0;
-        margin-inline: 2rem;
-    }
+        margin-inline: 2rem;*/
+        .main-section {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-inline: 2rem;
+        }
 
     .main-container, .timeline-container {
         margin-block-start: 0 !important;
@@ -881,6 +885,8 @@ ul {
     }
 
     .process-pitch-wrapper {
+        display: flex;
+        flex-direction: column;
         padding: 2rem;
     }
 
@@ -1013,12 +1019,16 @@ ul {
 }
 
 @media screen and (max-width:991px) {
-    .percs-container {
+    /*.percs-container {
         padding-block: 0rem;
         margin-block: 2rem;
         grid-template-areas:    'percs-content' 
                                 'percs-ft';
         grid-template-columns: 1fr;
+    }*/
+
+    .percs-container {
+        display: flex;
     }
 
     .percs-content {
@@ -1077,14 +1087,18 @@ ul {
 }
 
 @media screen and (max-width:991px) {
-    .ext-container {
+    /*.ext-container {
         margin-block: 2rem;
         grid-template-areas: none;
         grid-template-columns: none;
         gap: 0;
+    }*/
+    .ext-container {
+        display: flex;
+
     }
 
-    .ext-ft h1 {
+    .ext-ft h1, .percs-ft h1 {
         font-size: 2rem;
     }
 
@@ -1097,7 +1111,7 @@ ul {
 }
 
 
-/* ---- End of percs ---- */
+/* ---- End of extension ---- */
 
 /* ---- Start of cards ---- */
 
