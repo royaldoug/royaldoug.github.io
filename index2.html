@@ -31,7 +31,7 @@
     <meta property="twitter:description" content="Ekshärads Water Jet AB är en ledande leverantör av legobaserade skärtjänster med laser-, vatten-, gas- och plasmaskärning.">
     <meta property="twitter:image" content="twitter-logo.jpg">
     
-    <!-- <style>.landing {background:linear-gradient(90deg, var(--landing-bg-color-one), var(--landing-bg-color-two)), url('img/landing_img.jpg');background-blend-mode: hard-light;background-position: 20% 0%;background-repeat: no-repeat;background-size: cover;}</style> -->
+    <style>.landing {background:linear-gradient(90deg, var(--landing-bg-color-one), var(--landing-bg-color-two)), url('img/landing_img.jpg');background-blend-mode: hard-light;background-position: 20% 0%;background-repeat: no-repeat;background-size: cover;}</style>
 </head>
 <body>
     <div class="sc-excep">Please use a device with larger screen to view the content.<hr></div>
@@ -147,33 +147,38 @@
             </div>
         </div>
     </div>
-    
-    <section class="landing">
-        
-        <!-- rellax" data-rellax-speed="-5" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0" data-rellax-bigger-speed="0" -->
-        <div class="header-center">
-            <div class="header-center-content">
-                <!-- <object type="image/svg+xml" data="ewj_logo_animated.svg" class="header-svg" alt="Ekshärads Water Jet AB" href="#" aria-label="Ekshärads Water Jet AB"></object> -->
-                <p>Precision i varje snitt med <b id="switch-landing" style="color: var(--body-color);">vatten</b></p>
-                <div class="landing-flavor">
-                    <p>Detaljer och konstruktioner, simpla som komplexa, i små till medelstora serier. Vi är en gedingen underleverantör till många företag inom branschen - stora som små.
-                    </p>
-                </div>
-                <div class="machine-list">
-                    <a class="machine-list-btn" href="#processer"><span></span>Tillverkningen</a>
-                    <a class="machine-list-btn" href="kontakt.html" style="box-shadow: none; background: var(--landing-bg-color-main) !important;"><span></span>Ekshärads Water Jet</a>
-                </div>
-            </div>
+    <section class="landing rellax" data-rellax-speed="-5" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0" data-rellax-bigger-speed="0" >
+        <!-- <div class="header-left">
+            <h1>Vi skär med
+                <h1 id="switch-landing">Vatten</h1>
+            </h1>
         </div>
         <div class="header-right">
-            <div class="td-container">
-                <model-viewer src="img/3d model/assm-3d.glb" tone-mapping="neutral" shadow-intensity="1" exposure="1" shadow-softness=".6" auto-rotate camera-orbit="45deg 60deg"> </model-viewer>
+            <object type="image/svg+xml" data="ewj_logo_animated.svg" class="navbar-svg" alt="Ekshärads Water Jet AB" href="#" aria-label="Ekshärads Water Jet AB"></object>
+        </div> -->
+
+        <div class="header-center">
+            <div class="header-center-content">
+                <object type="image/svg+xml" data="ewj_logo_animated.svg" class="header-svg" alt="Ekshärads Water Jet AB" href="#" aria-label="Ekshärads Water Jet AB"></object>
+                <p class="flavor-header">Vi skär med <b id="switch-landing">vatten</b></p>
             </div>
         </div>
     </section>
 
+    <section class="customers-container">
+        <div class="hS customers-text">Några av våra kunder</div>
+        <div class="customers-grid">
+            <img src="customers/uddeholm_logo.png" alt="Uddeholm" loading="lazy">
+            <img src="customers/valmet_logo.png" alt="Valmet" loading="lazy">
+            <img src="customers/deltabloc_logo.png" alt="Deltabloc" loading="lazy">
+            <img src="customers/kms_logo.png" alt="KMS" loading="lazy">
+        </div>
+    </section>
+
     <section class="main-section">
-        <div class="process-pitch-wrapper" id="processer">
+
+        
+        <div class="process-pitch-wrapper">
             <div class="process-pitch-item rellax" data-rellax-speed="-0.2" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0">
                 <img src="img/icons/waterjet.svg" alt="Vattenskärning">
                 <h2>Vattenskärning</h2>
@@ -203,7 +208,7 @@
 
             <div class="process-pitch-item rellax" data-rellax-speed="0.2" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0">
                 <img src="img/icons/other_pro.svg" alt="Tillägg">
-                <h2>Bearbetning</h2>
+                <h2>Tillägg</h2>
                 <p>Vi hjälper även till med rullning av plåt, bockning, svetsning och andra typer av bearbetning i mindre till medelstora serier.</p>
                 <a href="tillagg.html" aria-label="Läs mer om våra tillägg">
                     <button class="process-pitch-btn" aria-label="Läs mer om våra tilläggstjänster">Läs mer</button>
@@ -265,22 +270,19 @@
 
             </div>
             <div class="ext-content">
-                <!-- <model-viewer src="img/3d model/flange-3d.glb" tone-mapping="neutral" shadow-intensity="0" exposure=".8" shadow-softness="1.1" auto-rotate camera-orbit="45deg 80deg"> </model-viewer> -->
-            <img src="img/uuundulate.svg" alt="">
-            <img src="img/ball-bg.svg" alt="">
+                <model-viewer src="img/3d model/flange-3d.glb" tone-mapping="neutral" shadow-intensity="0" exposure=".8" shadow-softness="1.1" auto-rotate camera-orbit="45deg 80deg"> </model-viewer>
             </div>
         </div>
 
 
-        <!-- <div class="rellax speckle seventh" data-rellax-speed="5" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0">
+        <div class="rellax speckle seventh" data-rellax-speed="5" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0">
         </div>
 
         <div class="rellax speckle eight" data-rellax-speed="3" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0">
         </div>
 
         <div class="rellax speckle ninth" data-rellax-speed="3" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0">
-        </div> -->
-        
+        </div>
         
            
             <div class="card-init">
@@ -328,16 +330,6 @@
                 <p>500k<span>+</span></p>
                 <p>Detaljer skurna</p>
             </div>
-        </div>
-    </section>
-    
-    <section class="customers-container">
-        <!-- <div class="hS customers-text">Några av våra kunder</div> -->
-        <div class="customers-grid">
-            <img src="customers/uddeholm_logo.png" alt="Uddeholm" loading="lazy">
-            <img src="customers/valmet_logo.png" alt="Valmet" loading="lazy">
-            <img src="customers/deltabloc_logo.png" alt="Deltabloc" loading="lazy">
-            <img src="customers/kms_logo.png" alt="KMS" loading="lazy">
         </div>
     </section>
     <footer>
