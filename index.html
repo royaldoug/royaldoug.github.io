@@ -4,6 +4,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
     </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+    </style>
+
+    
     
     <link rel="stylesheet" href="css/styles.css">
 
@@ -151,12 +156,12 @@
     <section class="landing">
         
         <!-- rellax" data-rellax-speed="-5" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0" data-rellax-bigger-speed="0" -->
-        <div class="header-center">
+        <div class="header-center smooth-in time-1">
             <div class="header-center-content">
                 <!-- <object type="image/svg+xml" data="ewj_logo_animated.svg" class="header-svg" alt="Ekshärads Water Jet AB" href="#" aria-label="Ekshärads Water Jet AB"></object> -->
-                <p>Precision i varje snitt med <b id="switch-landing" style="color: var(--body-color);">vatten</b></p>
+                <p>Precision i varje snitt med <span id="switch-landing">vatten</span></p>
                 <div class="landing-flavor">
-                    <p>Detaljer och konstruktioner, simpla som komplexa, i små till medelstora serier. Vi är en gedingen underleverantör till många företag inom branschen - stora som små.
+                    <p>Detaljer och konstruktioner, simpla som komplexa, i små till medelstora serier. Vi är en gedigen leverantör till många företag inom olika branscher - stora som små.
                     </p>
                 </div>
                 <div class="machine-list">
@@ -165,63 +170,71 @@
                 </div>
             </div>
         </div>
-        <div class="header-right">
+        <div class="header-right smooth-in time-1">
             <div class="td-container">
                 <model-viewer src="img/3d model/assm-3d.glb" tone-mapping="neutral" shadow-intensity="1" exposure="1" shadow-softness=".6" auto-rotate camera-orbit="45deg 60deg"> </model-viewer>
             </div>
         </div>
     </section>
 
-    <section class="main-section">
+    <section class="main-section smooth-in time-1">
         <div class="process-pitch-wrapper" id="processer">
-            <div class="process-pitch-item rellax" data-rellax-speed="-0.2" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0">
-                <img src="img/icons/waterjet.svg" alt="Vattenskärning">
-                <h2>Vattenskärning</h2>
-                <p>En kall bearbetningsmetod som är lämplig för detaljskärning i en rad olika material.</p>
-                <a href="vatten.html" aria-label="Läs mer om vattenskärning">
-                    <button class="process-pitch-btn" aria-label="Läs mer om vattenskärning">Läs mer</button>
-                </a>
-            </div>
+            <div class="process-pitch-container">
+                <p class="hS">Stolt leverantör till</p>
+                <div class="marquee-container">
+                    <div class="customer-marquee-item item1">
+                        <img src="customers/uddeholm_logo.png" alt="Uddeholm" loading="lazy">
+                    </div>
+                    <div class="customer-marquee-item item2">
+                        <img src="customers/valmet_logo.png" alt="Valmet" loading="lazy">
+                    </div>
+                    <div class="customer-marquee-item item3">
+                        <img src="customers/deltabloc_logo.png" alt="Deltabloc" loading="lazy">
+                    </div>
+                    <div class="customer-marquee-item item4">
+                        <img src="customers/kms_logo.png" alt="KMS" loading="lazy">
+                    </div> 
+                </div>
 
-            <div class="process-pitch-item rellax" data-rellax-speed="0.2" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0">
-                <img src="img/icons/laser.svg" alt="Laserskärning">
-                <h2>Laserskärning</h2>
-                <p>En effektiv skärmetod med hög precision och korta ledtider.</p>
-                <a href="laser.html" aria-label="Läs mer om laserskärning">
-                    <button class="process-pitch-btn" aria-label="Läs mer om laserskärning">Läs mer</button>
-                </a>
+                <div class="process-pitch-item-holder">
+                    <div class="process-pitch-item">
+                        <img src="img/icons/waterjet.svg" alt="Vattenskärning">
+                        <h2>Vattenskärning</h2>
+                    <p>En kall bearbetningsmetod som är lämplig för detaljskärning i en rad olika material.</p>
+                    <a href="vatten.html" aria-label="Läs mer om vattenskärning">
+                        <button class="process-pitch-btn" aria-label="Läs mer om vattenskärning">Läs mer</button>
+                    </a>
+                </div>
+                <div class="process-pitch-item">
+                    <img src="img/icons/laser.svg" alt="Laserskärning">
+                    <h2>Laserskärning</h2>
+                    <p>En effektiv skärmetod med hög precision och korta ledtider.</p>
+                    <a href="laser.html" aria-label="Läs mer om laserskärning">
+                        <button class="process-pitch-btn" aria-label="Läs mer om laserskärning">Läs mer</button>
+                    </a>
+                </div>
+                <div class="process-pitch-item">
+                    <img src="img/icons/plasma.svg" alt="Gas- och plasmaskärning">
+                    <h2>Gas- & Plasmaskärning</h2>
+                    <p>En varm bearbetningsmetod för snabb framställning av grova ämnen.</p>
+                    <a href="gas-plasma.html" aria-label="Läs mer om gas och plasmaskärning">
+                        <button class="process-pitch-btn" aria-label="Läs mer om gas- och plasmaskärning">Läs mer</button>
+                    </a>
+                </div>
+                <div class="process-pitch-item">
+                    <img src="img/icons/other_pro.svg" alt="Tillägg">
+                    <h2>Bearbetning</h2>
+                    <p>Vi hjälper även till med rullning av plåt, bockning, svetsning och andra typer av bearbetning.</p>
+                    <a href="tillagg.html" aria-label="Läs mer om våra tillägg">
+                        <button class="process-pitch-btn" aria-label="Läs mer om våra tilläggstjänster">Läs mer</button>
+                    </a>
+                </div>
+                </div>
+                
             </div>
-
-            <div class="process-pitch-item rellax" data-rellax-speed="-0.2" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0">
-                <img src="img/icons/plasma.svg" alt="Gas- och plasmaskärning">
-                <h2>Gas- & Plasmaskärning</h2>
-                <p>En varm bearbetningsmetod för snabb framställning av grova ämnen.</p>
-                <a href="gas-plasma.html" aria-label="Läs mer om gas och plasmaskärning">
-                    <button class="process-pitch-btn" aria-label="Läs mer om gas- och plasmaskärning">Läs mer</button>
-                </a>
-            </div>
-
-            <div class="process-pitch-item rellax" data-rellax-speed="0.2" data-rellax-xs-speed="0" data-rellax-mobile-speed="0" data-rellax-tablet-speed="0">
-                <img src="img/icons/other_pro.svg" alt="Tillägg">
-                <h2>Bearbetning</h2>
-                <p>Vi hjälper även till med rullning av plåt, bockning, svetsning och andra typer av bearbetning i mindre till medelstora serier.</p>
-                <a href="tillagg.html" aria-label="Läs mer om våra tillägg">
-                    <button class="process-pitch-btn" aria-label="Läs mer om våra tilläggstjänster">Läs mer</button>
-                </a>
-            </div>
-        </div>
-
-        
-        
-        <div class="percs-container">
-            <div class="percs-content">
-                <p>Snabba</p>
-                <p>Pålitliga</p>
-                <p>Kostnadseffektiva</p> 
-            </div>
-            <div class="percs-ft">
+            <div class="process-flavor">
                 <p class="hS">Ekshärads Water Jet</p>
-                <h1 class="flavor-header">Legotillverkning i klass</h1>
+                <h1 class="flavor-header">Legotillverkning i hög klass</h1>
                 <p>Vi på <b>EWJ</b> jobbar för att sätta våra kunder i fokus med huvudmål att få fram rätt detaljer för rätt pris i bäst lämpliga material</p>
                 <p>Ekshärads Water Jet har varit aktiva inom branschen i över 20 år. Med många år på nacken är vi en leverantör ni kan lita på för era projekt.</p>
 
@@ -241,7 +254,6 @@
                 </a>
             </div>
         </div>
-
         
         <div class="ext-container">
             <div class="ext-ft">
@@ -331,15 +343,15 @@
         </div>
     </section>
     
-    <section class="customers-container">
-        <!-- <div class="hS customers-text">Några av våra kunder</div> -->
+    <!-- <section class="customers-container">
+        <div class="hS customers-text">Några av våra kunder</div>
         <div class="customers-grid">
             <img src="customers/uddeholm_logo.png" alt="Uddeholm" loading="lazy">
             <img src="customers/valmet_logo.png" alt="Valmet" loading="lazy">
             <img src="customers/deltabloc_logo.png" alt="Deltabloc" loading="lazy">
             <img src="customers/kms_logo.png" alt="KMS" loading="lazy">
         </div>
-    </section>
+    </section> -->
     <footer>
         <div class="footer-wrapper">
             <div class="inside-footer">
@@ -421,12 +433,28 @@
         <div class="copyright">
             <div class="xf5">© Ekshärads Water Jet AB</div>
             <div class="xf5">2022</div>
-        </div>       
+        </div>    
+        <div class="footer-flavor">
+            <p>EKSHÄRADS WATER JET</p>
+            <div class="marquee-container">
+                <div class="customer-marquee-item item1">
+                    <img src="customers/uddeholm_logo.png" alt="Uddeholm" loading="lazy">
+                </div>
+                <div class="customer-marquee-item item2">
+                    <img src="customers/valmet_logo.png" alt="Valmet" loading="lazy">
+                </div>
+                <div class="customer-marquee-item item3">
+                    <img src="customers/deltabloc_logo.png" alt="Deltabloc" loading="lazy">
+                </div>
+                <div class="customer-marquee-item item4">
+                    <img src="customers/kms_logo.png" alt="KMS" loading="lazy">
+                </div> 
+            </div>
+        </div>   
     </footer>
 </div>
     <script src="js/data-scroll.js"></script>
     <script src="js/main.js"></script>
-    
     <script src="js/text-switch.js"></script> 
     <script src="js/rellax.min.js"></script>
     <script src="js/initiate-sp.js"></script>

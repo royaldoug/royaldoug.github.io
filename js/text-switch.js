@@ -1,45 +1,38 @@
-//'Vi skär med' -subtext- function
-
-function onLoadChange(){
+function onLoadChange() {
     const primaryObject = document.getElementById('switch-landing');
+    const words = ["vatten", "laser", "plasma", "gas"];
+    let totalDuration = 0; 
 
-    setTimeout(function () {
-        primaryObject.classList.toggle('opacity-none');
-        primaryObject.innerHTML = "vatten";
-        // primaryObject.style.color = 'var(--vatten)';
+    words.forEach(function(word, index) {
+        const startTime = totalDuration;
+        // Duration
+        const visibleDuration = 5000; 
+        // Time 
+        const fadeOutDuration = 300; 
+        // Gap 
+        const gapDuration = 200; 
+
+        // Schedule the fade-in
         setTimeout(function () {
-            primaryObject.classList.toggle('opacity-none');
-        },4700);
-    },0); 
+            primaryObject.classList.remove('opacity-down'); 
+            primaryObject.classList.add('opacity-none'); 
+            primaryObject.innerHTML = word;
+        }, startTime);
 
-    setTimeout(function () {
-        primaryObject.classList.toggle('opacity-none');
-        primaryObject.innerHTML = "laser";
-        // primaryObject.style.color = 'var(--laser)';
+        // Schedule the fade-out
         setTimeout(function () {
-            primaryObject.classList.toggle('opacity-none');
-        },4700);
-    },5000); 
+            primaryObject.classList.remove('opacity-none'); 
+            primaryObject.classList.add('opacity-down'); 
+        }, startTime + visibleDuration);
 
-    setTimeout(function () {
-        primaryObject.classList.toggle('opacity-none');
-        primaryObject.innerHTML = "plasma";
-        // primaryObject.style.color = 'var(--plasma)';
         setTimeout(function () {
-            primaryObject.classList.toggle('opacity-none');
-        },4700);
-    },10000); 
+            primaryObject.classList.remove('opacity-down');
+        }, startTime + visibleDuration + fadeOutDuration);
 
-    setTimeout(function () {
-        primaryObject.classList.toggle('opacity-none');
-        primaryObject.innerHTML = "gas";
-        // primaryObject.style.color = 'var(--gas)';
-        setTimeout(function () {
-            primaryObject.classList.toggle('opacity-none');
-        },4700);
-    },15000); 
+        totalDuration += visibleDuration + fadeOutDuration + gapDuration;
+    });
 
-    setTimeout(onLoadChange, 20000);
-};
+    setTimeout(onLoadChange, totalDuration);
+}
 
 onLoadChange();
